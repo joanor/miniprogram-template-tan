@@ -1,0 +1,52 @@
+/*
+ * @Author: joanoor
+ * @Mail: joanoor@outlook.com
+ * @Github: https://github.com/joanoor
+ * @Date: 2020-07-08 11:18:51
+ * 小程序的wxs文件，只支持ES5的语法
+ */ 
+
+module.exports = {
+  
+  /**
+   * 描述
+   * @author xixi
+   * @date 2020-07-08
+   * @param {any} evt
+   * @param {any} instance
+   */
+  onPulling: function (evt, instance) {
+    var p = Math.min(evt.detail.dy / 80, 1)
+    var view = instance.selectComponent('.refresh-container')
+    view.setStyle({
+      opacity: p,
+      transform: "scale(" + p + ")"
+    })
+  },
+
+  /**
+   * 描述
+   * @date 2020-07-08
+   * @param {any} value
+   * @returns {any}
+   */
+  roundNumber: function (value) {
+    return Math.round(value)
+  },
+
+  /**
+   * 描述
+   * @date 2020-07-08
+   * @param {any} name
+   * @returns {any}
+   */
+  roundName: function (name) {
+    var b=''
+    if (name.length > 2) {
+      b = name.slice(1)
+    } else {
+      b = name
+    }
+    return b
+  }
+}
