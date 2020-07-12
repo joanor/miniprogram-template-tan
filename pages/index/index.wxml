@@ -1,1 +1,8 @@
-<view class="container"></view>
+<!--pages/index/index.wxml-->
+<text class="texts">pages/index/index.wxml</text>
+<view class="isbutton" hover-class="hover-isbutton" bindtap="handle">点击我</view>
+<view>结果是：{{result}}</view>
+<view>名字是：{{myName}}</view>
+<button bindtap="onChangeName">更改名字</button>
+<button bindtap="buttonTap">更改状态</button>
+<view>结果是：{{sum}}</view>

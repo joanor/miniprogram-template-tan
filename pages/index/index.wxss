@@ -1,0 +1,14 @@
+/* pages/index/index.wxss */
+.isbutton{
+  width:300rpx;
+  height:80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background:#fCF909;
+  margin:20rpx auto;
+  transition: all 0.1s;
+}
+
+.hover-isbutton{
+  background:rgba(0,0,0,0.2);
+}

@@ -1,0 +1,28 @@
+{
+  "name": "miniprogram-template-tan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joanor/miniprogram-template-tan.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joanor/miniprogram-template-tan/issues"
+  },
+  "homepage": "https://github.com/joanor/miniprogram-template-tan#readme",
+  "dependencies": {
+    "miniprogram-computed": "^2.1.1",
+    "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^1.2.1"
+  }
+}

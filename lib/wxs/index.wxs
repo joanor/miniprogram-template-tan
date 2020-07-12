@@ -17,7 +17,7 @@ module.exports = {
    */
   onPulling: function (evt, instance) {
     var p = Math.min(evt.detail.dy / 80, 1)
-    var view = instance.selectComponent('.refresh-container')
+    var view = instance.selecxComponent('.refresh-container')
     view.setStyle({
       opacity: p,
       transform: "scale(" + p + ")"
