@@ -1,6 +1,4 @@
 import { xComponent } from '../../lib/wrapper/index'
-const Event=require('../../lib/wrapper/event/index')
-import { store } from '../../lib/wrapper/store/index'
 
 xComponent({
   props: {
@@ -9,17 +7,7 @@ xComponent({
   data: {
     result:0
   },
-  storeBindings: {
-    store,
-    fields: {
-      numA: () => store.numA,
-      numB: (store) => store.numB,
-      sum: 'sum'
-    },
-    actions: {
-      buttonTap: 'update'
-    },
-  },
+
   created(){
   },
   mounted(){
@@ -28,16 +16,22 @@ xComponent({
       console.log(res.height)
     })
     
-    Event.addEventListener('HHHHH',()=>
+    this.$addEventListener('HHHHH',()=>
       this.aaa()
     )
+    console.log('username',this.data.username)
     
   },
+  watch:{
+    'username':function(username){
+      console.log('转变后的username',username)
+    }
+  },
   methods:{
-    buttonTap(){},
-    // myMethod() {
-    //   this.data.sum // 来自于 MobX store 的字段
-    // },
+    buttonTap(){
+      this.update('张萍')
+    },
+   
     aaa(){
       console.log('监听了，哈哈哈')
     },
@@ -45,7 +39,7 @@ xComponent({
     handle(){
       console.log('点击了')
       // debugger
-      Event.dispatch('HHHHH')
+      this.$dispatch('HHHHH')
       this.$set({
         result:'这是结果啦'
       }).then(res=>{
