@@ -12,3 +12,20 @@
 .hover-isbutton{
   background:rgba(0,0,0,0.2);
 }
+
+.circle{
+  width:100rpx;
+  height:100rpx;
+  background:#e84118;
+}
+
+.swing{
+  animation:swing 5s infinite;
+}
+
+.tada{
+  width:50rpx;
+  height:50rpx;
+  background:blue;
+  animation:fadeInUp 4s infinite;
+}

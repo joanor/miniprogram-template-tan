@@ -6,3 +6,7 @@
 <button bindtap="onChangeName">更改名字</button>
 <button bindtap="buttonTap">更改状态</button>
 <view>结果是：{{sum}}</view>
+<!-- <view class="circle swing"> -->
+<view class="circle">
+<!-- <view class="tada"></view> -->
+</view>

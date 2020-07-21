@@ -2,16 +2,13 @@
  * @Author: joanoor
  * @Mail: joanoor@outlook.com
  * @Github: https://github.com/joanoor
- * @Date: 2020-07-08 11:18:51
  * 小程序的wxs文件，只支持ES5的语法
  */
 
 module.exports = {
 
   /**
-   * 描述
-   * @author xixi
-   * @date 2020-07-08
+   * 官方自定义下拉刷新
    * @param {any} evt
    * @param {any} instance
    */

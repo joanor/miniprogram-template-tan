@@ -1,4 +1,5 @@
 import { xComponent } from '../../lib/wrapper/index'
+const time=require('../../lib/wrapper/dayjs/index')
 
 xComponent({
   props: {
@@ -11,7 +12,7 @@ xComponent({
   created(){
   },
   mounted(){
-    
+    console.log('time',new time().$d)
     this.$getRect('.texts').then(res=>{
       console.log(res.height)
     })
@@ -21,6 +22,15 @@ xComponent({
     )
     console.log('username',this.data.username)
     
+    // var myAnimation = anime({
+    //   targets: '.circle',
+    //   translateX: '13rem',
+    //   rotate: 180,
+    //   borderRadius: '50%',
+    //   duration: 6000,
+    //   backgroundColor: '#fbc531',
+    //   loop: true
+    // })
   },
   watch:{
     'username':function(username){
