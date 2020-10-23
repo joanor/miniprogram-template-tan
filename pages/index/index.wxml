@@ -1,11 +1,7 @@
-<<<<<<< HEAD
 <view class="isbutton" hover-class="hover-isbutton" bindtap="handle">点击我</view>
 <view>结果是：{{result}}</view>
 <view>名字是：{{myName}}</view>
 <button bindtap="onChangeName">更改名字</button>
 <button bindtap="buttonTap">更改状态</button>
 <view>结果是：{{sum}}</view>
-<view class="circle">
-</view>
-=======
->>>>>>> 896620dc067f95b3d58663c3009214ae7f668785
+<view class="circle"></view>
