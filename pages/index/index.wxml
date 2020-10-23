@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <view class="isbutton" hover-class="hover-isbutton" bindtap="handle">点击我</view>
 <view>结果是：{{result}}</view>
 <view>名字是：{{myName}}</view>
@@ -6,3 +7,5 @@
 <view>结果是：{{sum}}</view>
 <view class="circle">
 </view>
+=======
+>>>>>>> 896620dc067f95b3d58663c3009214ae7f668785

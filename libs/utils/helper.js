@@ -1,3 +1,5 @@
+
+ 
 module.exports = {
     standardPath(path) {
         const charCodeOfDot = '.'.charCodeAt(0);
@@ -20,6 +22,8 @@ module.exports = {
         });
         return result.join('.');
     },
+    
+    
     get(object, path, defaultValue) {
         if (typeof path === 'undefined') {
             throw new Error('请输入正确的 path 参数！');
