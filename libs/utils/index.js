@@ -1,11 +1,3 @@
-/*
- * @Author: joanoor
- * @Mail: joanoor@outlook.com
- * @Github: https://github.com/joanoor
- * @Description: 所需的一些工具方法
- */
-
-
 /**
  * 将类似'2020-05-02 13:30:51'这样的时间转换成时间戳
  * @param { String } time 年月日时分秒格式的字符串

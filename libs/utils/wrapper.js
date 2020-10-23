@@ -1,69 +1,9 @@
-/*
- * @Author: joanoor
- * @Mail: joanoor@outlook.com
- * @Github: https://github.com/joanoor
- * @Date: 2020-07-08 22:11:32
- * @Description: 封装小程序的内部方法
- */
-
 var touchStartX = 0                   //触摸时的原点 
 var touchStartY = 0                   //触摸时的原点 
 var time = 0                          // 时间记录，用于滑动时且时间小于1s则执行左右滑动 
 var interval = ""                     // 记录/清理时间记录 
 var touchMoveX = 0                    // x轴方向移动的距离
 var touchMoveY = 0                    // y轴方向移动的距离
-
-/**
-* 封装微信自带的存储方法
-* @param { String } key 
-* @param { String } value 
-* @param { Function } success_callback
-* @param { Function } fail_callback
-*/
-const setItem = (key, value, success_callback = () => { }, fail_callback = () => {
-  wx.showToast({
-    title: '消息存储失败',
-  })
-}) => {
-  wx.setStorage({
-    key: key,
-    data: value,
-    success: success_callback,
-    fail: fail_callback
-  })
-}
-
-/**
- * 封装从缓存中获取指定key值的方法
- * @param { String } key 
- */
-const getItem = key => {
-  return new Promise((resolve, reject) => {
-    let options = {
-      key: key,
-      success: res => resolve(res),
-      fail: err => reject('系统异常！'),
-      complete: () => { }
-    }
-    wx.getStorage(options)
-  })
-}
-
-/**
- * 封装从缓存中删除指定key值的方法
- * @param { String } key 
- */
-const deleteItem = key => {
-  return new Promise((resolve, reject) => {
-    let options = {
-      key: key,
-      success: res => resolve(res),
-      fail: err => reject('系统异常！'),
-      complete: () => { }
-    }
-    wx.removeStorage(options)
-  })
-}
 
 /**
  * 触摸开始，以call或apply的方式调用
@@ -128,9 +68,6 @@ const touchEnd = e => {
 }
 
 module.exports = {
-  setItem,
-  getItem,
-  deleteItem,
   touchStart,
   touchMove,
   touchEnd

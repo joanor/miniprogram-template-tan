@@ -1,27 +1,19 @@
-/*
- * @Author: joanoor
- * @Mail: joanoor@outlook.com
- * @Github: https://github.com/joanoor
- */
-
-const Storage=require('../storage/index')
-const Event=require('../event/index')
-
+const Libs=require('../xtlib/index')
 export const basic = Behavior({
   methods: {
     /* 封装triggerEvent */
-    $emit(...args) {
+    $emit (...args) {
       this.triggerEvent(...args)
     },
 
     /* 封装setDataa */
-    $set(data = {}, callback = () => {}) {
+    $set (data = {}, callback = () => { }) {
       this.setData(data, callback);
       return new Promise((resolve) => wx.nextTick(resolve))
     },
 
     /* 封装boundingClientRect */
-    $getRect(selector = '', all = false) {
+    $getRect (selector = '', all = false) {
       return new Promise((resolve) => {
         wx.createSelectorQuery()
           .in(this)
@@ -39,38 +31,38 @@ export const basic = Behavior({
     },
 
     /* 封装存储对象 */
-    $setItem(key, value, expiration){
-      Storage.setStorageSync(key, value, expiration)
+    $setItem (key, value, expiration) {
+      Libs.Storage.setStorageSync(key, value, expiration)
     },
 
     /* 封装获取存储对象 */
-    $getItem(key){
-      Storage.getStorageSync(key)
+    $getItem (key) {
+      Libs.Storage.getStorageSync(key)
     },
 
     /* 封装删除指定存储对象 */
-    $deleteItem(key){
-      Storage.removeStorageSync(key)
+    $deleteItem (key) {
+      Libs.Storage.removeStorageSync(key)
     },
 
     /* 封装清空存储对象 */
-    $clearItem(){
-      Storage.clearStorageSync()
+    $clearItem () {
+      Libs.Storage.clearStorageSync()
     },
 
     /* 添加事件监听 */
-    $addEventListener(type, callback, scope){
-      Event.addEventListener(type, callback, scope)
+    $addEventListener (type, callback, scope) {
+      Libs.Event.addEventListener(type, callback, scope)
     },
 
     /* 移除事件监听 */
-    $removeEventListener(type) {
-      Event.removeEventListener(type) 
+    $removeEventListener (type) {
+      Libs.Event.removeEventListener(type)
     },
 
     /* 发布事件 */
-    $dispatch(type, target){
-      Event.dispatch(type, target)
+    $dispatch (type, target) {
+      Libs.Event.dispatch(type, target)
     },
 
   },

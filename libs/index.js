@@ -1,36 +1,31 @@
-/*
- * @Author: joanoor
- * @Mail: joanoor@outlook.com
- * @Github: https://github.com/joanoor
- */
-
 import { basic } from './mixins/base'
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
 import { store } from './store/index'
+
 
 const computedBehavior = require('miniprogram-computed')
 
 const relationFunctions = {
   ancestor: {   // 祖先
-    linked(parent) {
+    linked (parent) {
       this.parent = parent;
     },
-    unlinked() {
+    unlinked () {
       this.parent = null;
     },
   },
   descendant: {   // 后代
-    linked(child) {
+    linked (child) {
       this.children = this.children || [];
       this.children.push(child);
     },
-    unlinked(child) {
+    unlinked (child) {
       this.children = (this.children || []).filter((it) => it !== child);
     },
   },
 }
 
-function mapKeys(source = {}, target = {}, map = {}) {
+function mapKeys (source = {}, target = {}, map = {}) {
   Object.keys(map).forEach((key) => {
     if (source[key]) {
       target[map[key]] = source[key];
@@ -38,9 +33,9 @@ function mapKeys(source = {}, target = {}, map = {}) {
   });
 }
 
-function makeRelation(options, vantOptions, relation) {
+function makeRelation (options, xtOpitions, relation) {
   const { type, name, linked, unlinked, linkChanged } = relation;
-  const { beforeCreate, destroyed } = vantOptions;
+  const { beforeCreate, destroyed } = xtOpitions;
   if (type === 'descendant') {
     options.created = function () {
       beforeCreate && beforeCreate.bind(this)();
@@ -54,14 +49,14 @@ function makeRelation(options, vantOptions, relation) {
   options.relations = Object.assign(options.relations || {}, {
     [`../${name}/index`]: {
       type,
-      linked(node) {
+      linked (node) {
         relationFunctions[type].linked.bind(this)(node);
         linked && linked.bind(this)(node);
       },
-      linkChanged(node) {
+      linkChanged (node) {
         linkChanged && linkChanged.bind(this)(node);
       },
-      unlinked(node) {
+      unlinked (node) {
         relationFunctions[type].unlinked.bind(this)(node);
         unlinked && unlinked.bind(this)(node);
       },
@@ -69,9 +64,9 @@ function makeRelation(options, vantOptions, relation) {
   });
 }
 
-function xComponent(vantOptions) {
+function xt (xtOpitions) {
   const options = {};
-  mapKeys(vantOptions, options, {
+  mapKeys(xtOpitions, options, {
     data: 'data',
     props: 'properties',
     mixins: 'behaviors',
@@ -87,18 +82,18 @@ function xComponent(vantOptions) {
     watch: 'watch'                         // 小程序watch
   });
 
-  const { relation } = vantOptions;
+  const { relation } = xtOpitions;
   if (relation) {
-    makeRelation(options, vantOptions, relation);
+    makeRelation(options, xtOpitions, relation);
   }
 
   // add default store, each page will use it
   options.storeBindings = {
     store,
     fields: {
-      username:()=>store.username
+      username: () => store.username
     },
-    actions:['update']
+    actions: ['update']
   }
 
   // add default externalClasses
@@ -112,7 +107,7 @@ function xComponent(vantOptions) {
   options.behaviors.push(computedBehavior);
 
   // map field to form-field behavior
-  if (vantOptions.field) {
+  if (xtOpitions.field) {
     options.behaviors.push('wx://form-field');
   }
 
@@ -134,5 +129,5 @@ function xComponent(vantOptions) {
   Component(options);
 }
 
-export { xComponent };
+export { xt };
 

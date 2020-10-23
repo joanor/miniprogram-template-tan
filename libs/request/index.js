@@ -1,11 +1,3 @@
-/*
- * @Author: joanoor
- * @Mail: joanoor@outlook.com
- * @Github: https://github.com/joanoor
- * @Date: 2020-07-08 15:22:58
- * @Description: 小程序所有的request请求放在这里统一处理
- */
-
 /**
  * 定义公共方法resquestFunc，封装小程序request方法
  * @private

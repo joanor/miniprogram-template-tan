@@ -71,10 +71,8 @@ EventBusClass.prototype = {
     }
     return false
   },
-
   dispatch(type, target) {
     console.log('Event 发布事件：', type, target)
-
     const event = {
       type,
       target
